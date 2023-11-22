@@ -1,0 +1,9 @@
+<div class="position-relative">
+  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) %>)">
+    <h1><%= @bike.name %></h1>
+    <h1><%= @bike.description %></h1>
+
+    <!-- Add a button to link to the booking website -->
+    <%= link_to "Rent Now", new_bike_booking_path(@bike), class: "btn btn-primary" %>
+  </div>
+</div>
