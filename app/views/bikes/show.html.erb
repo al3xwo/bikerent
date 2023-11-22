@@ -4,6 +4,6 @@
     <h1><%= @bike.description %></h1>
 
     <!-- Add a button to link to the booking website -->
-    <%= link_to "Rent Now", new_booking_path(bike_id: @bike.id), class: "btn btn-primary" %>
+    <%= link_to "Rent Now", new_bike_booking_path(@bike), class: "btn btn-primary" %>
   </div>
 </div>
