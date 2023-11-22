@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @bike = Bike.find(params[:bike_id])
   end
 
   def edit
@@ -39,7 +40,7 @@ class BookingsController < ApplicationController
   end
 
   private
-  
+
   def set_booking
     @booking = Booking.find(params[:id])
   end
