@@ -1,0 +1,11 @@
+# simple form for a bike instance with fields for name, description, price and category
+<%= bike.errors.messages if bike.errors.present? %>
+<%= simple_form_for bike do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :location %>
+  <%= f.input :category, collection: Bike::CATEGORIES %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit class: "mb-5" %>
+<% end %>
