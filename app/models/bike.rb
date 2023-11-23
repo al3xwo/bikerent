@@ -1,5 +1,6 @@
 class Bike < ApplicationRecord
   CATEGORIES = %w[City Electric] # Gravel Dirt Road City Trekking Mountain BMX]
+  has_one_attached :photo
   belongs_to :user
   has_many :bookings
 
