@@ -3,15 +3,12 @@
     <h2><%= @bike.name %></h2>
     <h2><%= @bike.description %></h2>
     <h2><%= @bike.price %></h2>
-      <script>
-        console.log('Price:', <%= @bike.price.to_json %>);
-      </script>
-    <div data-controller='datepicker'>
-      <%= simple_form_for [@bike, @booking] do |f| %>
-        <%= f.input :checkin, as: :string, input_html: { data: { datepicker_target: 'dateField', datepicker_price_value: @bike.price.to_json } } %>
+    <div data-controller='datepicker' data-datepicker-price-value='<%= @bike.price.to_json %>'>
+      <h2>Price: <span data-datepicker-target='priceDisplay'></span></h2>
+      <%= simple_form_for [@bike, @booking ] do |f| %>
+        <%= f.input :checkin, as: :string, input_html: { data: { datepicker_target: 'dateField' } } %>
         <%= f.button :submit, 'Create Booking', class: 'btn btn-primary' %>
       <% end %>
-    <h3>Price: <span data-datepicker-target='priceDisplay'></span></h3>
     </div>
   </div>
 </div>
