@@ -20,6 +20,7 @@
             <%= image_tag "https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My Bookings", all_bookings_path, class: "dropdown-item" %>
               <%= link_to "All Bikes 🚲", "#", class: "dropdown-item" %>
               <%= link_to "Help 🆘", "#", class: "dropdown-item" %>
               <%= link_to "My Account 😎", "#", class: "dropdown-item" %>

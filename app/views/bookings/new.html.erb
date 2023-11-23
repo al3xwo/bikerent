@@ -3,7 +3,7 @@
     <h2><%= @bike.name %></h2>
     <h2><%= @bike.description %></h2>
     <h2><%= @bike.price %></h2>
-    <div data-controller='datepicker' data-datepicker-price-value='<%= @bike.price.to_json %>'>
+    <div data-controller='datepicker' data-datepicker-price-value='<%= @bike.price.to_json %>' data-datepicker-dates-to-disable-value="<%= @dates_to_disable.to_json %>">
       <h2>Price: <span data-datepicker-target='priceDisplay'></span></h2>
       <%= simple_form_for [@bike, @booking ] do |f| %>
         <%= f.input :checkin, as: :string, input_html: { data: { datepicker_target: 'dateField' } } %>

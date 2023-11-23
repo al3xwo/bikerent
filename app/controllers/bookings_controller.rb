@@ -9,8 +9,15 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
     @bike = Bike.find(params[:bike_id])
+    @booking = Booking.new
+    @dates_to_disable = @bike
+                      .bookings
+                      .where('checkout > ?', Date.yesterday)
+                      .pluck(:checkin, :checkout)
+                      .map do |(checkin, checkout)|
+                        { from: checkin, to: checkout }
+                      end
   end
 
   def edit
@@ -26,7 +33,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.bike = @bike
     if @booking.save
-      redirect_to bike_path(@bike), notice: 'Booking was successfully created.'
+      redirect_to bikes_path(@bikes), notice: 'Booking was successfully created.'
     else
       render :new
     end
