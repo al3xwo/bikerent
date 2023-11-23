@@ -1,0 +1,10 @@
+.card-category {
+  height: 200px;
+  width: 200px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
