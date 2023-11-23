@@ -13,6 +13,12 @@ body {
   flex-grow: 1;
 }
 
+.center-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nameandprice p {
   margin: 0%;
 }

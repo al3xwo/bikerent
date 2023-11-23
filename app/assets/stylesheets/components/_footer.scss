@@ -5,7 +5,7 @@
   justify-content: center;
   height: 100px;
   padding: 0px 50px;
-  color: rgba(255, 255, 255, 0.3);
+
   width: 100%;
   flex-grow: 0;
   bottom: 0;
@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
 }
-.footer-links a {
+.footer-links > a > i {
   color: rgb(255, 255, 255);
   opacity: 0.5;
   text-decoration: none;
@@ -24,6 +24,12 @@
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
-  color: #D23333;
+
+.footer-copyright > p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer span {
+  margin-left: 8px;
 }
