@@ -10,13 +10,13 @@
           <div class="search-form-control form-group">
               <%# end of previous version %>
             <div class="row justify-content-left">
-                <div class="col-sm-8 my-3">
-                  <%= form_with url: bikes_path, method: :get, class: "d-flex" do %>
+                <div class="col-sm-4 my-3">
+                  <%= form_with url: bikes_path, method: :get, class: "d-flex searchbar" do %>
                     <%= text_field_tag :query,
                           params[:query],
                           class: "form-control",
-                          placeholder: "Type a keyword"%>
-                    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+                          placeholder: "Search by city or category"%>
+                    <%= submit_tag "Search", name: "", class: "btn btn-primary mt-2" %>
                   <% end %>
                 </div>
            </div>
@@ -30,17 +30,21 @@
     </div>
     <div class="cards">
       <% @bikes.each do |bike| %>
-        <div class="card-bike ">
-          <div class=" d-flex justify-content-center align-items-center card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(20,0,0,0.1), rgba(0,20,0,0.2)), url(<%= cl_image_path bike.photo.key, height: 300, crop: :fill %>)">
-            <h3 class="p-0"><%= link_to bike_path(bike), class: "text-decoration-none" do %><%= bike.name %></h3>
-            <% end %>
+        <%= link_to bike_path(bike), class: "text-decoration-none" do %>
+          <div class="card-bike">
+            <div class=" d-flex justify-content-center align-items-center card-category"
+              data-aos="zoom-in"
+              style="background-image: linear-gradient(rgba(20,0,0,0.1), rgba(0,20,0,0.2)), url(<%= cl_image_path bike.photo.key, width: 400, height: 250, gravity: :auto, crop: :fill %>);
+                object-fit: cover;">
+            </div>
+              <%# card info %>
+            <div class="p-3">
+              <p><strong>Name:</strong> <%= bike.name %></p>
+              <p><strong>Location:</strong> <%= bike.location %></p>
+              <p><strong>Price per Day:</strong> <%= bike.price %>€ / day</p>
+            </div>
           </div>
-            <%# card info %>
-          <div class="p-3">
-            <p><strong>Name:</strong> <%= bike.name %></p>
-            <p><strong>Price per Day:</strong> <%= bike.price %>€ / day</p>
-          </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

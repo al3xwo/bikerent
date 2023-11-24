@@ -53,15 +53,15 @@ bike = Bike.new(name: "Bike7", user_id: users[6].id, price: 1, description: "Siz
 file = File.open(File.join(Rails.root, "app/assets/images/bike7.jpg"))
 bike.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 bike.save
-bike = Bike.new(name: "Bike8", user_id: users[7].id, price: 2, description: "Size:25inch,Color:Black,Brakes:Disc", category: "Electric", location: "Frankfurt")
+bike = Bike.new(name: "Bike8 ⚡", user_id: users[7].id, price: 2, description: "Size:25inch,Color:Black,Brakes:Disc", category: "Electric", location: "Frankfurt")
 file = File.open(File.join(Rails.root, "app/assets/images/bike8.jpg"))
 bike.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 bike.save
-bike = Bike.new(name: "Bike9", user_id: users[8].id, price: 1, description: "Size:29inch,Color:Red,Brakes:Disc", category: "Electric", location: "Essen")
+bike = Bike.new(name: "Bike9 ⚡", user_id: users[8].id, price: 1, description: "Size:29inch,Color:Red,Brakes:Disc", category: "Electric", location: "Essen")
 file = File.open(File.join(Rails.root, "app/assets/images/bike9.jpg"))
 bike.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 bike.save
-bike = Bike.new(name: "Bike10", user_id: users[9].id, price: 2, description: "Size:27inch,Color:Green,Brakes:Hydraulic", category: "Electric", location: "Bonn")
+bike = Bike.new(name: "Bike10 ⚡", user_id: users[9].id, price: 2, description: "Size:27inch,Color:Green,Brakes:Hydraulic", category: "Electric", location: "Bonn")
 file = File.open(File.join(Rails.root, "app/assets/images/bike10.jpg"))
 bike.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 bike.save
