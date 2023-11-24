@@ -9,4 +9,11 @@ class Bike < ApplicationRecord
   validates :description, presence: true
   validates :category, inclusion: { in: CATEGORIES }
   validates :location, presence: true
+
+  include PgSearch::Model
+pg_search_scope :search_by_location_and_category,
+  against: [ :location, :category ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
