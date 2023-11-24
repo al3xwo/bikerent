@@ -1,9 +1,19 @@
-<div class="position-relative">
-  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) %>)">
-    <h1><%= @bike.name %></h1>
-    <h1><%= @bike.description %></h1>
+<div class="wraper center-middle">
+  <div class="container container-show">
+    <div class="position-relative">
 
-    <!-- Add a button to link to the booking website -->
-    <%= link_to "Rent Now", new_bike_booking_path(@bike), class: "btn btn-primary" %>
+    <div class="card-bike">
+      <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) %>)">
+      </div>
+      <div class="card-info p-3 d-flex justify-content-between align-items-start">
+        <div>
+          <h3><%= @bike.name %></h3>
+          <p><%= @bike.description %></p>
+        </div>
+          <%= link_to "Rent Now", new_bike_booking_path(@bike), class: "btn btn-primary" %>
+        </div>
+    </div>
+        <!-- Add a button to link to the booking website -->
+    </div>
   </div>
 </div>
