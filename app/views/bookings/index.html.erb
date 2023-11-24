@@ -1,7 +1,10 @@
-<h1>My Bookings</h1>
-
+<body class="text-center">
+    <div class="mt-5">
+        <h1>My bookings</h1>
+    </div>
+<div class="wraper center-middle">
 <% if @bookings.any? %>
-  <table>
+  <table class="table table-white">
     <thead>
       <tr>
         <th>Bike</th>
@@ -22,3 +25,4 @@
 <% else %>
   <p>No bookings available.</p>
 <% end %>
+</div>
