@@ -6,6 +6,7 @@ class BikesController < ApplicationController
   end
 
   def show
+    @bike = Bike.find(params[:id])
     # @ booking
     # Assumes set_bike method sets @bike instance variable
   end
