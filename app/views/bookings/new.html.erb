@@ -14,12 +14,12 @@
 
             <div>
               <h3><%= @bike.name %></h3>
-              <p>Price: <span data-datepicker-target='priceDisplay'></span></p>
+              <p> Price:<strong> <span data-datepicker-target='priceDisplay'></span>€ in total </strong></p>
             </div>
 
             <div>
               <p><%= @bike.description %></p>
-              <p><%= @bike.price %></p>
+              <p><%= @bike.price %>€ / day</p>
             </div>
 
           </div>
