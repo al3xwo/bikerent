@@ -1,14 +1,35 @@
-<div class="position-relative">
-  <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) %>)">
-    <h2><%= @bike.name %></h2>
-    <h2><%= @bike.description %></h2>
-    <h2><%= @bike.price %></h2>
-    <div data-controller='datepicker' data-datepicker-price-value='<%= @bike.price.to_json %>' data-datepicker-dates-to-disable-value="<%= @dates_to_disable.to_json %>">
-      <h2>Price: <span data-datepicker-target='priceDisplay'></span></h2>
-      <%= simple_form_for [@bike, @booking ] do |f| %>
-        <%= f.input :checkin, as: :string, input_html: { data: { datepicker_target: 'dateField' } } %>
-        <%= f.button :submit, 'Create Booking', class: 'btn btn-primary' %>
-      <% end %>
+<div class="wraper center-middle">
+  <div class="container position-relative">
+    <div class="card-bike">
+      <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) %>)"></div>
+
+      <div class="p-3">
+
+        <div data-controller='datepicker'
+        data-datepicker-price-value='<%= @bike.price.to_json %>'
+        data-datepicker-dates-to-disable-value="<%= @dates_to_disable.to_json %>">
+
+          <div class="d-flex justify-content-between">
+
+            <div>
+              <h3><%= @bike.name %></h3>
+              <p>Price: <span data-datepicker-target='priceDisplay'></span></p>
+            </div>
+
+            <div>
+              <p><%= @bike.description %></p>
+              <p><%= @bike.price %></p>
+            </div>
+
+          </div>
+
+          <%= simple_form_for [@bike, @booking ] do |f| %>
+            <%= f.input :checkin, as: :string, input_html: { data: { datepicker_target: 'dateField' } } %>
+            <%= f.button :submit, 'Create Booking', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
