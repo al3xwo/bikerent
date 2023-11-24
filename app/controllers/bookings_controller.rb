@@ -9,20 +9,33 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
     @bike = Bike.find(params[:bike_id])
+    @booking = Booking.new
+    @dates_to_disable = @bike
+                      .bookings
+                      .where('checkout > ?', Date.yesterday)
+                      .pluck(:checkin, :checkout)
+                      .map do |(checkin, checkout)|
+                        { from: checkin, to: checkout }
+                      end
   end
 
   def edit
   end
 
   def create
-    @booking = Booking.new(booking_params)
-
+    @bike = Bike.find(params[:bike_id])
+    @booking = Booking.new(booking_params.except(:checkin))
+    dates = booking_params[:checkin].split(' to ')
+    checkin, checkout = dates
+    @booking.checkin = Date.parse(checkin)
+    @booking.checkout = Date.parse(checkout)
+    @booking.user = current_user
+    @booking.bike = @bike
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to bikes_path(@bikes), notice: 'Booking was successfully created.'
     else
-        render :new
+      render :new
     end
   end
 
@@ -46,6 +59,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :event_id, :date, :status)
+    params.require(:booking).permit(:user_id, :event_id, :checkin, :status)
   end
 end

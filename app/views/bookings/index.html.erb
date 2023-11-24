@@ -1,0 +1,24 @@
+<h1>My Bookings</h1>
+
+<% if @bookings.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Bike</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.bike.name %></td>
+          <td><%= booking.checkin %></td>
+          <td><%= booking.checkout %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No bookings available.</p>
+<% end %>

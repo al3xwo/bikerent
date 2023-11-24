@@ -2,6 +2,7 @@ class Bike < ApplicationRecord
   CATEGORIES = %w[City Electric] # Gravel Dirt Road City Trekking Mountain BMX]
   has_one_attached :photo
   belongs_to :user
+  has_many :bookings
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :price, presence: true, numericality: { greater_than: 0 }
